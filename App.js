@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import initDatabase from "./src/api/config";
-import Home from "./src/screen/home";
+import Cadastro from "./src/screen/cadastro";
 import Party from "./src/screen/party";
 import { StatusBar } from "expo-status-bar";
 
@@ -13,6 +13,8 @@ export default function App() {
   initDatabase();
   return (
     <>
+
+
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
@@ -25,8 +27,8 @@ export default function App() {
         >
           <Stack.Screen
             name="Inicio"
-            component={Home}
-            options={{ title: "Encontre Festas" }}
+            component={Cadastro}
+            options={{ title: "Cadastrar Evento" }}
           />
           <Stack.Screen name="Festa" component={Party} />
         </Stack.Navigator>

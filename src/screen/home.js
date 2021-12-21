@@ -48,7 +48,7 @@ export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.list}>
-        {[Object.values(items)[0]].map((item, index) => (
+        {Object.values(items).map((item, index) => (
           <TouchableOpacity
             key={uuid.v4()}
             onPress={() =>
