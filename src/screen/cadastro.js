@@ -1,21 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 // import SelectDropdown from 'react-native-select-dropdown';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, Image, Picker, selectedValue, } from 'react-native';
+import { 
+    StyleSheet,
+    Text,
+     View, 
+     TextInput,
+      TouchableOpacity, 
+      ImageBackground, 
+      Image, 
+      Picker, 
+      selectedValue, 
+      SafeAreaView,
+      
+    } from 'react-native';
 import DatePicker from 'react-native-datepicker'
-
+import {ImagePickerExample} from '../components/imagePicker/image';
 
 export default function AppForm() {
   const [selectedValue, setSelectedValue] = useState("java");
   const values = ["willian", "java"];
   const [date, setDate] = useState(new Date());
-
   return (
-    <View style={styles.container}>
-      {/* <Text style={styles.title}>Cadastrar Evento</Text> */}
-      <View style={styles.inputContainer}> 
-    
-            <DatePicker
+    <SafeAreaView style={styles.container}>
+      
+      <View style={styles.inputContainer}>
+        <TextInput 
+          style={styles.inputnome} 
+          placeholder="Tipo de Evento"
+          clearButtonMode="always" />  
+             <TextInput 
+          style={styles.input} 
+          placeholder="Localização do Evento"
+          clearButtonMode="always" />  
+      <DatePicker
         style={{width: 200 , marginLeft:20}}
         
         mode="date"
@@ -39,31 +57,18 @@ export default function AppForm() {
         }}
         onDateChange={setDate}
       />
-
-        <TextInput
-         
+         <TextInput 
           style={styles.input} 
-          placeholder="Titulo da Festa"
-          clearButtonMode="always" />  
-             <TextInput 
-          style={styles.input} 
-        
-          placeholder="Localização"
-          clearButtonMode="always" />  
-             <TextInput 
-          style={styles.input } 
           placeholder="Descrição do Evento"
-          clearButtonMode="always" />  
-            
-     
-
-     
-        <TouchableOpacity style={styles.button}> 
+          clearButtonMode="always" />      
+ 
+      </View>
+      <ImagePickerExample />
+      <TouchableOpacity style={styles.button}> 
           <Text style={styles.buttonText}>Avançar</Text> 
         </TouchableOpacity> 
-      </View>
       <StatusBar style="light" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -72,7 +77,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
+    
   },
+ 
   title: {
 
     color: 'black',
@@ -83,6 +90,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
     width: '90%',
+    height: '100%',
     padding: 20,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -90,25 +98,35 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   Picker:{
-  display:'flex',
+  flex:1,
   justifyContent:'flex-start',
   marginTop:2,
    
   },
   input: {
-    
-    marginTop: 20,
+    marginTop:-10,
     height: 60,
     backgroundColor: '#fff',
     borderRadius: 10,
     paddingHorizontal: 24,
     fontSize: 16,
-    alignItems: 'stretch',
-    borderColor:'red'
+    alignItems: 'stretch'
+    
+    
+  },
+  inputnome: {
+    marginTop:-10,
+    height: 60,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    paddingHorizontal: 24,
+    fontSize: 16,
+    alignItems: 'stretch'
+    
     
   },
   button: {
-    marginTop: 10,
+    width: '85%',
     height: 60,
     backgroundColor: 'grey',
     borderRadius: 10,
@@ -123,16 +141,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
-  },
-  datastyle:{
-      marginTop:"20%",
-      marginBottom: 40,
-      height: 100,
-      width:"70%",
-      justifyContent: 'center',
-      alignSelf: 'center'
-      
-      
-      
   }
 });

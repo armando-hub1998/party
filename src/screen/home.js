@@ -41,13 +41,17 @@ const PartyItem = ({ item, navigation, itemId }) => (
 export default function Home({ navigation }) {
   const [items, setItem] = React.useState({});
 
+  const handlePress = () => {
+    alert('Clicou aqui')
+  }
+
   React.useEffect(() => {
     getFromDatabase(setItem);
   }, [items]);
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.list}>
+      <ScrollView style={styles.list} >
         {Object.values(items).map((item, index) => (
           <TouchableOpacity
             key={uuid.v4()}
@@ -56,6 +60,7 @@ export default function Home({ navigation }) {
                 itemId: Object.keys(items)[index],
                 ...item,
               })
+              
             }
             style={[styles.item]}
           >
@@ -66,7 +71,7 @@ export default function Home({ navigation }) {
               style={styles.image}
             />
             <View style={styles.content}>
-              <Text style={styles.title}>{item.nome}</Text>
+              <Text style={styles.title} onPress={handlePress}>{item.nome}</Text>
               <Text style={styles.promotor}>{item.promotor}</Text>
               <Text style={styles.hora}>
                 {item.hora} - {item.date}
