@@ -7,9 +7,9 @@ import {
   Image,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList,
 } from "react-native";
-// import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { getFromDatabase } from "../api";
 
@@ -52,8 +52,9 @@ export default function Home({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.list} >
+      <ScrollView style={styles.list}>
         {Object.values(items).map((item, index) => (
+          
           <TouchableOpacity
             key={uuid.v4()}
             onPress={() =>
