@@ -25,48 +25,48 @@ export default function AppForm() {
     <SafeAreaView style={styles.container}>
       
       <View style={styles.inputContainer}>
-        <TextInput 
-          style={styles.inputnome} 
+        <TextInput
+          style={styles.inputnome}
           placeholder="Tipo de Evento"
-          clearButtonMode="always" />  
-             <TextInput 
-          style={styles.input} 
+          clearButtonMode="always" />
+        <TextInput
+          style={styles.input}
           placeholder="Localização do Evento"
-          clearButtonMode="always" />  
-      <DatePicker
-        style={{width: 200 , marginLeft:20}}
+          clearButtonMode="always" />
+        <DatePicker
+          style={{ width: 200, marginLeft: 20 }}
         
-        mode="date"
-        placeholder="Data do Evento"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 2,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={setDate}
-      />
-         <TextInput 
-          style={styles.input} 
+          mode="date"
+          placeholder="Data do Evento"
+          format="YYYY-MM-DD"
+          minDate="2016-05-01"
+          maxDate="2016-06-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 2,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+            // ... You can check the source to find the other keys.
+          }}
+          onDateChange={setDate}
+        />
+        <TextInput
+          style={styles.input}
           placeholder="Descrição do Evento"
-          clearButtonMode="always" />      
+          clearButtonMode="always" />
  
       </View>
       <ImagePickerExample />
-      <TouchableOpacity style={styles.button}> 
-          <Text style={styles.buttonText}>Avançar</Text> 
-        </TouchableOpacity> 
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Avançar</Text>
+      </TouchableOpacity>
       <StatusBar style="light" />
     </SafeAreaView>
   );
@@ -97,14 +97,14 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: 'white'
   },
-  Picker:{
-  flex:1,
-  justifyContent:'flex-start',
-  marginTop:2,
+  Picker: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    marginTop: 2,
    
   },
   input: {
-    marginTop:-10,
+    marginTop: -10,
     height: 60,
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     
   },
   inputnome: {
-    marginTop:-10,
+    marginTop: -10,
     height: 60,
     backgroundColor: '#fff',
     borderRadius: 10,

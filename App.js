@@ -6,6 +6,7 @@ import initDatabase from "./src/api/config";
 import Home from "./src/screen/home";
 import Cadastro from "./src/screen/cadastro";
 import Party from "./src/screen/party";
+import Inicio from "./src/screen/Inicio";
 import { StatusBar } from "expo-status-bar";
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ export default function App() {
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
+          initialRouteName={Inicio}
           screenOptions={{
             headerStyle: {
               backgroundColor: "#111",
@@ -27,11 +29,25 @@ export default function App() {
           }}
         >
           <Stack.Screen
-            name="Inicio"
-            component={Home}
+            name="StarterScreen"
+            component={Inicio}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Cadastrar"
+            component={ Cadastro }
             options={{ title: "Cadastrar Evento" }}
           />
-          <Stack.Screen name="Festa" component={Party} />
+          <Stack.Screen
+            name="Inicio"
+            component={ Party }
+            options={{ title: "Detalhes Evento" }}
+          />
+          <Stack.Screen
+            name="Festa"
+            component={Home}
+            options={{ title: "Lista de Eventos" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

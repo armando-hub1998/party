@@ -7,8 +7,9 @@ import {
   Image,
   Text,
   View,
+  TouchableOpacity
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { getFromDatabase } from "../api";
 
@@ -60,9 +61,8 @@ export default function Home({ navigation }) {
                 itemId: Object.keys(items)[index],
                 ...item,
               })
-              
             }
-            style={[styles.item]}
+            style={styles.item}
           >
             <Image
               source={{
@@ -71,7 +71,7 @@ export default function Home({ navigation }) {
               style={styles.image}
             />
             <View style={styles.content}>
-              <Text style={styles.title} onPress={handlePress}>{item.nome}</Text>
+              <Text style={styles.title}>{item.nome}</Text>
               <Text style={styles.promotor}>{item.promotor}</Text>
               <Text style={styles.hora}>
                 {item.hora} - {item.date}
